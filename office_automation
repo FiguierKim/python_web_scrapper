@@ -1,0 +1,16 @@
+#0402 code it
+
+import requests
+
+rating_pages = []
+
+for y in range(2010, 2019):
+    for m in range(1, 13):
+        for d in range(5):
+            url = 'https://workey.codeit.kr/ratings/index?year={}&month={}&weekIndex={}'.format(y, m, d)
+            response = requests.get(url)
+            rating_page = response.text
+            rating_pages.append(rating_page)
+
+print(len(rating_pages))
+print(rating_pages[0])
